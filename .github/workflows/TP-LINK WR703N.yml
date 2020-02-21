@@ -1,4 +1,3 @@
-#
 # This is free software, lisence use MIT.
 # 
 # Copyright (C) 2019 P3TERX <https://p3terx.com>
@@ -108,9 +107,9 @@ jobs:
           CONFIG_TARGET_IMAGES_GZIP=y
           EOF
           # 编译UEFI固件:
-          cat >> .config <<EOF
-          CONFIG_EFI_IMAGES=y
-          EOF
+          # cat >> .config <<EOF
+          # CONFIG_EFI_IMAGES=y
+          # EOF
           # IPv6支持:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
@@ -174,14 +173,14 @@ jobs:
           # LuCI主题:
           cat >> .config <<EOF
           # CONFIG_PACKAGE_luci-theme-argon=y
-          CONFIG_PACKAGE_luci-theme-netgear=y
-          CONFIG_PACKAGE_luci-theme-atmaterial=y
-          EOF
+          # CONFIG_PACKAGE_luci-theme-netgear=y
+          # CONFIG_PACKAGE_luci-theme-atmaterial=y
+          # EOF
           # 无线网卡:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_wireless-regdb=y
-          CONFIG_PACKAGE_rtl8188eu-firmware=y
-          EOF
+          # cat >> .config <<EOF
+          # CONFIG_PACKAGE_wireless-regdb=y
+          # CONFIG_PACKAGE_rtl8188eu-firmware=y
+          # EOF
           # 常用软件包:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_curl=y
@@ -194,10 +193,9 @@ jobs:
           # EOF
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           cat >> .config <<EOF
-          # CONFIG_TARGET_IMAGES_PAD is not set
-          # CONFIG_VMDK_IMAGES is not set
+           CONFIG_TARGET_IMAGES_PAD is not set
+           CONFIG_VMDK_IMAGES is not set
           EOF
-          # 
           # ========================固件定制部分结束========================
           # 
           sed -i 's/^[ \t]*//g' ./.config
